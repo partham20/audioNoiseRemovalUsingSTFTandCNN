@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Audio Signal Denoising</title>
+  </head>
+  <style>
+    table,
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      text-align: center;
+    }
+    .center_div {
+      margin: auto;
+      width: 70%;
+      /* border: 3px solid #73ad21; */
+      padding: 10px;
+    }
+    .main_div {
+      margin: auto;
+      width: 60%;
+      border: 3px solid #73ad21;
+      padding: 10px;
+      border-radius: 15px;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="main_div">
+      <form action="/success" method="post" enctype="multipart/form-data">
+        <h1>Audio Signal Denoising Using STFT and CNN</h1>
+        <div class="center_div">
+          <div class="center_div">
+            <input type="file" name="file" />
+            <input type="submit" value="Upload" />
+          </div>
+        </div>
+        <table>
+          <tr>
+            <td>Input Audio</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><img src="{{input_img}}" width="512" height="128" /></td>
+            <td>
+              <audio controls>
+                <source src="{{input_wav}}" type="audio/wav" />
+                Your browser does not support the audio element.
+              </audio>
+            </td>
+          </tr>
+          <tr>
+            <td>Input STFT</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><img src="{{input_stft}}" width="512" height="128" /></td>
+          </tr>
+                    <tr>
+            <td>Denoised Audio</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><img src="{{output_img}}" width="512" height="128" /></td>
+            <td>
+              <audio controls>
+                <source src="{{output_wav}}" type="audio/wav" />
+                Your browser does not support the audio element.
+              </audio>
+            </td>
+          </tr>
+          <tr>
+            <td>Denoised Audio STFT</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><img src="{{output_stft}}" width="512" height="128" /></td>
+          </tr>
+        </table>
+        <h1>{{result}}</h1>
+      </form>
+    </div>
+  </body>
+</html>
